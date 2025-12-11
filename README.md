@@ -76,8 +76,8 @@ Por motivos de seguridad, los archivos de variables de entorno (`.env`) no se in
 Define la URL de la API. Cambiando `VITE_API_URL` se puede alternar entre el backend local y el de producción.
 
 ```env
-VITE_CLOUDINARY_CLOUD_NAME=dolvo0vvq
-VITE_CLOUDINARY_UPLOAD_PRESET=dolvo0vvq
+VITE_CLOUDINARY_CLOUD_NAME=[CREDENCIALES_PRIVADAS_OMITIDAS]
+VITE_CLOUDINARY_UPLOAD_PRESET=[CREDENCIALES_PRIVADAS_OMITIDAS]
 # Para local: http://localhost:5000
 # Para producción: https://emt-info-backend.onrender.com
 VITE_API_URL=http://localhost:5000
