@@ -14,7 +14,11 @@ app.use(express.json());
 
 // Database Connection
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => {
+    console.log('MongoDB Connected');
+    console.log('Database Name:', mongoose.connection.name);
+    console.log('Host:', mongoose.connection.host);
+  })
   .catch(err => console.error('MongoDB Connection Error:', err));
 
 import apiRoutes from './routes/api.js';
