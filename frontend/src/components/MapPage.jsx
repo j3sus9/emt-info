@@ -93,7 +93,7 @@ const MapPage = ({ user }) => {
   };
 
   return (
-    <div style={{ display: 'flex', height: 'calc(100vh - 70px)' }}>
+    <div className="map-page-container">
       <div className="sidebar">
         <div className="sidebar-header">
           <h3>Filtros</h3>
@@ -154,7 +154,7 @@ const MapPage = ({ user }) => {
         </div>
       </div>
 
-      <div style={{ flex: 1, position: 'relative', zIndex: 0 }}>
+      <div className="map-container-wrapper">
         <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 1000, background: 'white', padding: '5px 10px', borderRadius: '4px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
           Paradas encontradas: {paradas.length}
         </div>
