@@ -20,7 +20,7 @@ const Login = ({ setUser }) => {
 
       // Call backend to log login
       try {
-        await axios.post('http://localhost:5000/api/log/login', {
+        await axios.post('https://emt-info-backend.onrender.com/api/log/login', {
           usuario: user.email,
           token: user.token,
           caducidad: new Date(user.exp * 1000)

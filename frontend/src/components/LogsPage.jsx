@@ -12,7 +12,7 @@ const LogsPage = () => {
 
   const fetchLoginLogs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/log/login');
+      const res = await axios.get('https://emt-info-backend.onrender.com/api/log/login');
       setLoginLogs(res.data);
       setView('login');
     } catch (error) {
@@ -22,7 +22,7 @@ const LogsPage = () => {
 
   const fetchFilterLogs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/log/filter');
+      const res = await axios.get('https://emt-info-backend.onrender.com/api/log/filter');
       setFilterLogs(res.data);
       setView('filter');
     } catch (error) {

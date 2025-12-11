@@ -26,7 +26,7 @@ const MapPage = ({ user }) => {
 
   const fetchAllParadas = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/paradas');
+      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas');
       setParadas(res.data);
     } catch (error) {
       console.error(error);
@@ -50,7 +50,7 @@ const MapPage = ({ user }) => {
   const searchByLine = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get('http://localhost:5000/api/paradas', {
+      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
         params: { linea: filters.linea, sentido: filters.sentido, usuario: user.email }
       });
       setParadas(res.data);
@@ -62,7 +62,7 @@ const MapPage = ({ user }) => {
   const searchByName = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get('http://localhost:5000/api/paradas', {
+      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
         params: { nombre: filters.nombre, usuario: user.email }
       });
       setParadas(res.data);
@@ -80,7 +80,7 @@ const MapPage = ({ user }) => {
         const { lat, lon } = geoRes.data[0];
         
         // Call backend with coordinates
-        const res = await axios.get('http://localhost:5000/api/paradas', {
+        const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
           params: { lat, lon, direccion: filters.direccion, usuario: user.email }
         });
         setParadas(res.data);
