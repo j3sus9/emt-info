@@ -26,7 +26,7 @@ const MapPage = ({ user }) => {
 
   const fetchAllParadas = async () => {
     try {
-      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/paradas`);
       setParadas(res.data);
     } catch (error) {
       console.error(error);
@@ -50,7 +50,7 @@ const MapPage = ({ user }) => {
   const searchByLine = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/paradas`, {
         params: { linea: filters.linea, sentido: filters.sentido, usuario: user.email }
       });
       setParadas(res.data);
@@ -62,7 +62,7 @@ const MapPage = ({ user }) => {
   const searchByName = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/paradas`, {
         params: { nombre: filters.nombre, usuario: user.email }
       });
       setParadas(res.data);
@@ -80,7 +80,7 @@ const MapPage = ({ user }) => {
         const { lat, lon } = geoRes.data[0];
         
         // Call backend with coordinates
-        const res = await axios.get('https://emt-info-backend.onrender.com/api/paradas', {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/paradas`, {
           params: { lat, lon, direccion: filters.direccion, usuario: user.email }
         });
         setParadas(res.data);
@@ -155,6 +155,9 @@ const MapPage = ({ user }) => {
       </div>
 
       <div style={{ flex: 1, position: 'relative', zIndex: 0 }}>
+        <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 1000, background: 'white', padding: '5px 10px', borderRadius: '4px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
+          Paradas encontradas: {paradas.length}
+        </div>
         <MapContainer center={[36.7213, -4.4214]} zoom={13} style={{ height: '100%', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -48,8 +48,10 @@ router.get('/log/filter', async (req, res) => {
 
 // GET /api/paradas
 router.get('/paradas', async (req, res) => {
+  console.log('GET /api/paradas request received');
   try {
     const { linea, sentido, nombre, lat, lon, direccion, usuario } = req.query;
+    console.log('Query params:', req.query);
     let query = {};
     let accion = '';
 
@@ -78,8 +80,10 @@ router.get('/paradas', async (req, res) => {
     }
 
     const paradas = await Parada.find(query);
+    console.log(`Found ${paradas.length} paradas`);
     res.json(paradas);
   } catch (error) {
+    console.error('Error fetching paradas:', error);
     res.status(500).json({ error: error.message });
   }
 });
